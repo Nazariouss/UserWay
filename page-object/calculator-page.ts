@@ -43,26 +43,22 @@ export class CalculatorPage {
     };
 
     async addNum(number: string) {
-        const buttonAdd = this.page.locator("//input[@name='add']");
-        await buttonAdd.click();
+        await this.buttonAdd.click();
         await this.enterNum(number);
     };
 
     async subtractNum(number: string) {
-        const buttonSubtract = this.page.locator("//input[@name='subtract']");
-        await buttonSubtract.click();
+        await this.buttonSubtract.click();
         await this.enterNum(number);
     };
 
     async divideNum(number: string) {
-        const buttonDivide = this.page.locator("//input[@name='divide']");
-        await buttonDivide.click();
+        await this.buttonDivide.click();
         await this.enterNum(number);
     };
 
     async multiplyNum(number: string) {
-        const buttonMultiply = this.page.locator("//input[@name='multiply']");
-        await buttonMultiply.click();
+        await this.buttonMultiply.click();
         await this.enterNum(number);
     };
 };
