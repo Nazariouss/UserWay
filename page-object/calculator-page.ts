@@ -1,20 +1,30 @@
-import { expect, type Locator, type Page } from '@playwright/test';
+import { expect, type Locator, type Page} from '@playwright/test';
 
 export class CalculatorPage {
     readonly page: Page;
+    readonly baseURL: string;
     readonly buttonClear: Locator;
     readonly buttonEqual: Locator;
     readonly inputField: Locator;
+    readonly buttonAdd: Locator;
+    readonly buttonSubtract: Locator;
+    readonly buttonDivide: Locator;
+    readonly buttonMultiply: Locator;
 
-    constructor(page: Page) {
+    constructor(page: Page, baseURL: string) {
         this.page = page;
+        this.baseURL = baseURL;
         this.buttonClear = page.locator("//input[@name='clearButton']");
         this.buttonEqual = page.locator("//input[@value='=']");
         this.inputField = page.getByLabel('answer display');
+        this.buttonAdd = page.locator("//input[@name='add']");
+        this.buttonSubtract = page.locator("//input[@name='subtract']");
+        this.buttonDivide = page.locator("//input[@name='divide']");
+        this.buttonMultiply = page.locator("//input[@name='multiply']");
     };
 
     async goto() {
-        await this.page.goto("https://www.theonlinecalculator.com/");
+        await this.page.goto(this.baseURL);
     };
 
     getNum(value: string): Locator {
